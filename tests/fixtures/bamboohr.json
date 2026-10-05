@@ -1,0 +1,595 @@
+{
+ "meta": {
+  "totalCount": 12
+ },
+ "result": [
+  {
+   "id": "89",
+   "jobOpeningName": "Director of Product – London, United Kingdom",
+   "departmentId": "18653",
+   "departmentLabel": "Product",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": "London",
+    "state": null
+   },
+   "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "2",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/89",
+    "jobOpeningName": "Director of Product – London, United Kingdom",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18653",
+    "departmentLabel": "Product",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": "London",
+     "state": null,
+     "postalCode": "W1D 3QH",
+     "addressCountry": "United Kingdom"
+    },
+    "atsLocation": {
+     "country": null,
+     "countryId": null,
+     "state": null,
+     "city": null
+    },
+    "description": "<p>We're looking for a Director of Product to lead product strategy and execution across Holistic AI's enterprise AI governance and assurance platform.</p>\n<p><br></p>\n<p>You'll own product direction end to end: setting priorities, aligning Engineering and go-to-market around customer outcomes, and ",
+    "compensation": "£100,000",
+    "datePosted": "2026-09-17",
+    "minimumExperience": "Executive",
+    "locationType": "2",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "90",
+   "jobOpeningName": "Inside Sales Representative – London, UK",
+   "departmentId": "18600",
+   "departmentLabel": "Sales",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": "London",
+    "state": null
+   },
+   "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "2",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/90",
+    "jobOpeningName": "Inside Sales Representative – London, UK",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18600",
+    "departmentLabel": "Sales",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": "London",
+     "state": null,
+     "postalCode": "W1D 3QH",
+     "addressCountry": "United Kingdom"
+    },
+    "atsLocation": {
+     "country": null,
+     "countryId": null,
+     "state": null,
+     "city": null
+    },
+    "description": "<p>This is a quota-carrying position within our Sales organisation. You will generate new business through outbound prospecting, run initial meetings with prospects before they become opportunities, present the product and help close deals, working closely with Account Executives and Pre-Sales colle",
+    "compensation": "£50,000–£60,000/ OTE: £100,000–£120,000",
+    "datePosted": "2026-09-17",
+    "minimumExperience": "Mid-level",
+    "locationType": "2",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "91",
+   "jobOpeningName": "Inside Sales Representative – Bangalore, India",
+   "departmentId": "18600",
+   "departmentLabel": "Sales",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": null,
+    "state": null
+   },
+   "atsLocation": {
+    "country": "India",
+    "state": null,
+    "province": null,
+    "city": "Bangalore"
+   },
+   "isRemote": null,
+   "locationType": "1",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/91",
+    "jobOpeningName": "Inside Sales Representative – Bangalore, India",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18600",
+    "departmentLabel": "Sales",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": null,
+     "state": null,
+     "postalCode": null,
+     "addressCountry": null
+    },
+    "atsLocation": {
+     "country": "India",
+     "countryId": "100",
+     "state": null,
+     "city": "Bangalore"
+    },
+    "description": "<p>This is a quota-carrying position within our Sales organisation. You will generate new business through outbound prospecting, run initial meetings with prospects before they become opportunities, present the product and help close deals, working closely with Account Executives and Pre-Sales colle",
+    "compensation": "$35,000–$45,000 USD/ OTE: 70,000–90,000 USD",
+    "datePosted": "2026-09-17",
+    "minimumExperience": "Mid-level",
+    "locationType": "1",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "92",
+   "jobOpeningName": "Forward Deployed Engineer – Rio de Janeiro, Brazil",
+   "departmentId": "18602",
+   "departmentLabel": "Engineering",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": null,
+    "state": null
+   },
+   "atsLocation": {
+    "country": "Brazil",
+    "state": null,
+    "province": null,
+    "city": "Rio de Janeiro"
+   },
+   "isRemote": null,
+   "locationType": "1",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/92",
+    "jobOpeningName": "Forward Deployed Engineer – Rio de Janeiro, Brazil",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18602",
+    "departmentLabel": "Engineering",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": null,
+     "state": null,
+     "postalCode": null,
+     "addressCountry": null
+    },
+    "atsLocation": {
+     "country": "Brazil",
+     "countryId": "31",
+     "state": null,
+     "city": "Rio de Janeiro"
+    },
+    "description": "<p>Forward Deployed Engineers sit where product, engineering and customers meet. You'll configure and implement Holistic AI for enterprise deployments, make sure it works in real customer environments, and feed what you learn back to Product and Engineering.</p>\n<p><br></p>\n<p>This is hands-on deliv",
+    "compensation": "$50,000 USD",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Mid-level",
+    "locationType": "1",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "94",
+   "jobOpeningName": "GTM Engineer – London, United Kingdom ",
+   "departmentId": "18604",
+   "departmentLabel": "Marketing",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": "London",
+    "state": null
+   },
+   "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "0",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/94",
+    "jobOpeningName": "GTM Engineer – London, United Kingdom ",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18604",
+    "departmentLabel": "Marketing",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": "London",
+     "state": null,
+     "postalCode": "W1D 3QH",
+     "addressCountry": "United Kingdom"
+    },
+    "atsLocation": {
+     "country": null,
+     "countryId": null,
+     "state": null,
+     "city": null
+    },
+    "description": "<p>This role sits at the front of our revenue funnel: generating and qualifying demand for Holistic AI's enterprise AI governance platform. You'll create high-quality pipeline through outbound, inbound follow-up and campaign support, working closely with Marketing and Sales.</p>\n<p><br></p>\n<p>Succe",
+    "compensation": "£75,000",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Mid-level",
+    "locationType": "0",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "95",
+   "jobOpeningName": "Product Marketing Manager - London, United Kingdom",
+   "departmentId": "18604",
+   "departmentLabel": "Marketing",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": "London",
+    "state": null
+   },
+   "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "0",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/95",
+    "jobOpeningName": "Product Marketing Manager - London, United Kingdom",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18604",
+    "departmentLabel": "Marketing",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": "London",
+     "state": null,
+     "postalCode": "W1D 3QH",
+     "addressCountry": "United Kingdom"
+    },
+    "atsLocation": {
+     "country": null,
+     "countryId": null,
+     "state": null,
+     "city": null
+    },
+    "description": "<p>Product Marketing shapes how Holistic AI is positioned, messaged and brought to market. You'll turn product capabilities and market needs into clear stories for buyers, enable Sales and Pre-Sales, and support launches and campaigns that land with enterprise governance audiences.</p>\n<p><br></p>\n<",
+    "compensation": "£75,000",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Mid-level",
+    "locationType": "0",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "96",
+   "jobOpeningName": "Pre-Sales Engineer – East Coast, United States",
+   "departmentId": "18600",
+   "departmentLabel": "Sales",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": null,
+    "state": null
+   },
+   "atsLocation": {
+    "country": "United States",
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "1",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/96",
+    "jobOpeningName": "Pre-Sales Engineer – East Coast, United States",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18600",
+    "departmentLabel": "Sales",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": null,
+     "state": null,
+     "postalCode": null,
+     "addressCountry": null
+    },
+    "atsLocation": {
+     "country": "United States",
+     "countryId": "1",
+     "state": null,
+     "city": null
+    },
+    "description": "<p>Pre-Sales partners with Account Executives and customer stakeholders to run demos, support pilots and prove technical and business value.</p>\n<p><br></p>\n<p>You'll become a trusted advisor on how Holistic AI fits enterprise AI governance needs, from discovery through to a successful proof of valu",
+    "compensation": "$80,000 USD/Eligible for additional compensation based on Commission Plan. ",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Experienced",
+    "locationType": "1",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "97",
+   "jobOpeningName": "Pre-Sales Engineer – London, United Kingdom",
+   "departmentId": "18600",
+   "departmentLabel": "Sales",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": "London",
+    "state": null
+   },
+   "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "2",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/97",
+    "jobOpeningName": "Pre-Sales Engineer – London, United Kingdom",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18600",
+    "departmentLabel": "Sales",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": "London",
+     "state": null,
+     "postalCode": "W1D 3QH",
+     "addressCountry": "United Kingdom"
+    },
+    "atsLocation": {
+     "country": null,
+     "countryId": null,
+     "state": null,
+     "city": null
+    },
+    "description": "<p>Pre-Sales partners with Account Executives and customer stakeholders to run demos, support pilots and prove technical and business value.</p>\n<p><br></p>\n<p>You'll become a trusted advisor on how Holistic AI fits enterprise AI governance needs, from discovery through to a successful proof of valu",
+    "compensation": "£65,000/ Eligible for additional compensation based on Commission Plan.",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Experienced",
+    "locationType": "2",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "98",
+   "jobOpeningName": "Pre-Sales Engineer – Bangalore India",
+   "departmentId": "18600",
+   "departmentLabel": "Sales",
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": null,
+    "state": null
+   },
+   "atsLocation": {
+    "country": "India",
+    "state": null,
+    "province": null,
+    "city": "Bangalore"
+   },
+   "isRemote": null,
+   "locationType": "1",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/98",
+    "jobOpeningName": "Pre-Sales Engineer – Bangalore India",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18600",
+    "departmentLabel": "Sales",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": null,
+     "state": null,
+     "postalCode": null,
+     "addressCountry": null
+    },
+    "atsLocation": {
+     "country": "India",
+     "countryId": "100",
+     "state": null,
+     "city": "Bangalore"
+    },
+    "description": "<p>Pre-Sales partners with Account Executives and customer stakeholders to run demos, support pilots and prove technical and business value.</p>\n<p><br></p>\n<p>You'll become a trusted advisor on how Holistic AI fits enterprise AI governance needs, from discovery through to a successful proof of valu",
+    "compensation": "$50,000 USD/ Eligible for additional compensation based on Commission Plan.",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Experienced",
+    "locationType": "1",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "99",
+   "jobOpeningName": "Pre-Sales Engineer – Rio de Janeiro, Brazil",
+   "departmentId": "18600",
+   "departmentLabel": "Sales",
+   "employmentStatusLabel": "Contractor",
+   "employmentType": null,
+   "location": {
+    "city": null,
+    "state": null
+   },
+   "atsLocation": {
+    "country": "Brazil",
+    "state": null,
+    "province": null,
+    "city": "Rio de Janeiro"
+   },
+   "isRemote": null,
+   "locationType": "1",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/99",
+    "jobOpeningName": "Pre-Sales Engineer – Rio de Janeiro, Brazil",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18600",
+    "departmentLabel": "Sales",
+    "employmentStatusLabel": "Contractor",
+    "employmentType": null,
+    "location": {
+     "city": null,
+     "state": null,
+     "postalCode": null,
+     "addressCountry": null
+    },
+    "atsLocation": {
+     "country": "Brazil",
+     "countryId": "31",
+     "state": null,
+     "city": "Rio de Janeiro"
+    },
+    "description": "<p>Pre-Sales partners with Account Executives and customer stakeholders to run demos, support pilots and prove technical and business value.</p>\n<p><br></p>\n<p>You'll become a trusted advisor on how Holistic AI fits enterprise AI governance needs, from discovery through to a successful proof of valu",
+    "compensation": "$50,000 USD/ Eligible for additional compensation based on Commission Plan.",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Experienced",
+    "locationType": "1",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "100",
+   "jobOpeningName": "IT and Security Lead –  London, United Kingdom",
+   "departmentId": "18620",
+   "departmentLabel": "Operations",
+   "employmentStatusLabel": "Part-Time",
+   "employmentType": null,
+   "location": {
+    "city": "London",
+    "state": null
+   },
+   "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+   },
+   "isRemote": null,
+   "locationType": "2",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/100",
+    "jobOpeningName": "IT and Security Lead –  London, United Kingdom",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": "18620",
+    "departmentLabel": "Operations",
+    "employmentStatusLabel": "Part-Time",
+    "employmentType": null,
+    "location": {
+     "city": "London",
+     "state": null,
+     "postalCode": "W1D 3QH",
+     "addressCountry": "United Kingdom"
+    },
+    "atsLocation": {
+     "country": null,
+     "countryId": null,
+     "state": null,
+     "city": null
+    },
+    "description": "<p>This role brings IT and security ownership in-house. You'll take responsibility for the platform architecture and security practices that protect Holistic AI's systems, data and the trust of our enterprise customers, working closely with Engineering, leadership and commercial teams as we build an",
+    "compensation": null,
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Experienced",
+    "locationType": "2",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  },
+  {
+   "id": "101",
+   "jobOpeningName": "Forward Deployed Engineer – Bangalore, India",
+   "departmentId": null,
+   "departmentLabel": null,
+   "employmentStatusLabel": "Full-Time",
+   "employmentType": null,
+   "location": {
+    "city": null,
+    "state": null
+   },
+   "atsLocation": {
+    "country": "India",
+    "state": null,
+    "province": null,
+    "city": "Bangalore"
+   },
+   "isRemote": null,
+   "locationType": "1",
+   "detail": {
+    "jobOpeningShareUrl": "https://holisticai.bamboohr.com/careers/101",
+    "jobOpeningName": "Forward Deployed Engineer – Bangalore, India",
+    "jobOpeningStatus": "Open",
+    "jobCategoryId": null,
+    "departmentId": null,
+    "departmentLabel": "",
+    "employmentStatusLabel": "Full-Time",
+    "employmentType": null,
+    "location": {
+     "city": null,
+     "state": null,
+     "postalCode": null,
+     "addressCountry": null
+    },
+    "atsLocation": {
+     "country": "India",
+     "countryId": "100",
+     "state": null,
+     "city": "Bangalore"
+    },
+    "description": "<p>Forward Deployed Engineers sit where product, engineering and customers meet. You'll configure and implement Holistic AI for enterprise deployments, make sure it works in real customer environments, and feed what you learn back to Product and Engineering.<br><br></p>\n<p>This is hands-on delivery ",
+    "compensation": "$50,000 USD",
+    "datePosted": "2026-09-18",
+    "minimumExperience": "Mid-level",
+    "locationType": "1",
+    "seekPromoted": false,
+    "aiProcessingDisclosureEnabled": false
+   }
+  }
+ ]
+}

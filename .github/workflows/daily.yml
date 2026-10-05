@@ -1,0 +1,77 @@
+name: Daily job pipeline
+
+on:
+  schedule:
+    # GitHub cron is UTC. 07:00 UK time is 06:00 UTC in summer and 07:00 UTC in winter,
+    # so both are scheduled and the first step skips whichever one is not 07:00 in London.
+    - cron: "0 6 * * *"
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check it is 07:00 in London
+        id: clock
+        run: |
+          hour=$(TZ=Europe/London date +%H)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$hour" != "07" ]; then
+            echo "London hour is $hour, skipping this trigger"
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.clock.outputs.go == 'true'
+
+      - uses: actions/setup-python@v5
+        if: steps.clock.outputs.go == 'true'
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        if: steps.clock.outputs.go == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        if: steps.clock.outputs.go == 'true'
+        run: python -m pytest -q
+
+      - name: Write connections.csv from secret
+        if: steps.clock.outputs.go == 'true'
+        env:
+          CONNECTIONS_CSV: ${{ secrets.CONNECTIONS_CSV }}
+        run: |
+          if [ -n "$CONNECTIONS_CSV" ]; then
+            printf '%s\n' "$CONNECTIONS_CSV" > connections.csv
+          else
+            echo "CONNECTIONS_CSV is not set, every job will be tagged Cold"
+          fi
+
+      - name: Run pipeline
+        if: steps.clock.outputs.go == 'true'
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+        run: python main.py
+
+      - name: Upload jobs.csv
+        if: always() && steps.clock.outputs.go == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: jobs-csv
+          path: jobs.csv
+          if-no-files-found: warn
+          retention-days: 14

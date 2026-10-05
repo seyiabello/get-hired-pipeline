@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+/connections.csv
+/connections.slim.csv
+jobs.csv
+*service-account*.json
+
+/get-hired-docs/

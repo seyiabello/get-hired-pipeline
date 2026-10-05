@@ -1,0 +1,1134 @@
+{
+ "offset": 0,
+ "limit": 100,
+ "totalFound": 412,
+ "content": [
+  {
+   "id": "744000153202878",
+   "name": "Payment Operations Global Processing Specialist",
+   "uuid": "efca06d6-fade-438e-95e9-b211edccfef4",
+   "jobAdId": "94ce3cd7-0e5e-4c3e-b570-f3036c0f328c",
+   "defaultJobAd": true,
+   "refNumber": "R10709",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T14:28:40.491Z",
+   "location": {
+    "city": "São Paulo",
+    "country": "br",
+    "address": "Rua Girassol, 555, 1st Floor, Vila Madalena",
+    "postalCode": "05433-001",
+    "remote": false,
+    "hybrid": true,
+    "hybridDescription": "Hybrid model after probation period",
+    "fullLocation": "São Paulo, , Brazil"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "other",
+    "label": "Other"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "a857a0647d6e1000aa0fd8c043c80000",
+     "valueLabel": "Payment Operations Specialist - Scheduled - JP101264"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "031d60c1f3b201961c3b7585bc005100",
+     "valueLabel": "Payment Operations"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "br",
+     "valueLabel": "Brazil"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a700172edee9b31c712a31c",
+     "valueLabel": "Operations"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b94195016f133d61d1f100d410",
+     "valueLabel": "3"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e2015c704c2f07ba008614",
+     "valueLabel": "Operations"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "3e83bcc693211000b7c5707ead760000",
+     "valueLabel": "Operations Global Processing"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "01ae8d4a58401000b3e48ec465d50000",
+     "valueLabel": "Wise Brasil Corretora de Câmbio Ltda"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "7800 - 9350 BRL Monthly"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-11-03"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153202878",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000153192361",
+   "name": "Software Engineer - FX Markets",
+   "uuid": "068eb782-f6ae-4985-a453-14df9f3e9640",
+   "jobAdId": "dca111c4-a168-4acb-9751-a6d5886c67ab",
+   "defaultJobAd": true,
+   "refNumber": "R4886",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T14:04:29.638Z",
+   "location": {
+    "city": "London",
+    "country": "gb",
+    "address": "Worship Square, 65 Clifton Street",
+    "postalCode": "EC2A 4JE",
+    "remote": false,
+    "hybrid": true,
+    "fullLocation": "London, , United Kingdom"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "d840bf80cda1100200746ba303cc0000",
+     "valueLabel": "Engineer IC2 - JP101084"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a7001b7185a4531c7125d1c",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "65d3d1796435ba43bdb089ad",
+     "fieldLabel": "Squad",
+     "valueId": "c23f18fabbcf1001b4e6b54ce19e0000",
+     "valueLabel": "Treasury (Squad)"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b94195019ad99d30d3f100d510",
+     "valueLabel": "4"
+    },
+    {
+     "fieldId": "65d3d16de5ae4c7be012a87e",
+     "fieldLabel": "Tribe",
+     "valueId": "c23f18fabbcf1001b48842b1dc460000",
+     "valueLabel": "Finance & Treasury (Tribe)"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "c0b389e7c7791001aa0b726efdb00000",
+     "valueLabel": "Engineering Finance & Treasury"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "e380f86fa0b2011d520d2e87bc004000",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "gb",
+     "valueLabel": "United Kingdom"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e201fc81857d1fba008e14",
+     "valueLabel": "Technology"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "046034784a4d01f4134f114764273117",
+     "valueLabel": "Wise Payments Limited"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "68000 - 87500 GBP Annual"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2025-12-31"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153192361",
+   "language": {
+    "code": "en-GB",
+    "label": "English (UK)",
+    "labelNative": "English (UK)"
+   }
+  },
+  {
+   "id": "744000153194319",
+   "name": "Sales Team Manager - Wise Business",
+   "uuid": "c80b0727-76a1-458a-8f77-32e423755ef3",
+   "jobAdId": "966ba436-16e9-492a-b583-4faad6165ee8",
+   "defaultJobAd": true,
+   "refNumber": "R10675",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T14:01:25.801Z",
+   "location": {
+    "city": "São Paulo",
+    "country": "br",
+    "address": "Rua Girassol, 555, 1st Floor, Vila Madalena",
+    "postalCode": "05433-001",
+    "remote": false,
+    "hybrid": true,
+    "fullLocation": "São Paulo, , Brazil"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "analyst",
+    "label": "Analyst"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "d840bf80cda110014ceccf1389f40000",
+     "valueLabel": "Business Sales Senior Manager - JP101081"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "cb7e65d2926c0101e83065ce5b4c0000",
+     "valueLabel": "Platform Growth"
+    },
+    {
+     "fieldId": "65d3d1796435ba43bdb089ad",
+     "fieldLabel": "Squad",
+     "valueId": "001507b9d9811000d3db52b4e5db0000",
+     "valueLabel": "Business (Squad)"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b941950169671e99d5f100d710",
+     "valueLabel": "6"
+    },
+    {
+     "fieldId": "65d3d16de5ae4c7be012a87e",
+     "fieldLabel": "Tribe",
+     "valueId": "2508138664ba1001b4eeef7e41fa0000",
+     "valueLabel": "Global Product (Tribe)"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "5c1d12b03baf1001b13931f8746e0000",
+     "valueLabel": "AE Business"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "e380f86fa0b201da0596fe86bc003800",
+     "valueLabel": "Business Development"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "br",
+     "valueLabel": "Brazil"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "207c4d8c5cd91000fd930c4ccc0c0000",
+     "valueLabel": "Go To Market"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "01ae8d4a58401000b3e48ec465d50000",
+     "valueLabel": "Wise Brasil Corretora de Câmbio Ltda"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": " -   "
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-10-30"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153194319",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000153155714",
+   "name": "Software Engineer - Recurring Payin",
+   "uuid": "165a3aac-463f-4f4a-98a3-cf37294e899f",
+   "jobAdId": "c05015ba-32af-4127-b4ec-4bd51b85b536",
+   "defaultJobAd": true,
+   "refNumber": "R9028",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T11:32:57.955Z",
+   "location": {
+    "city": "London",
+    "country": "gb",
+    "address": "Worship Square, 65 Clifton Street",
+    "postalCode": "EC2A 4JE",
+    "remote": false,
+    "hybrid": true,
+    "fullLocation": "London, , United Kingdom"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "d840bf80cda1100200746ba303cc0000",
+     "valueLabel": "Engineer IC2 - JP101084"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a7001b7185a4531c7125d1c",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "65d3d1796435ba43bdb089ad",
+     "fieldLabel": "Squad",
+     "valueId": "c23f18fabbcf1001b616b23719d50000",
+     "valueLabel": "Receive (Squad)"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b94195019ad99d30d3f100d510",
+     "valueLabel": "4"
+    },
+    {
+     "fieldId": "65d3d16de5ae4c7be012a87e",
+     "fieldLabel": "Tribe",
+     "valueId": "2508138664ba1001b4eeef7e41fa0000",
+     "valueLabel": "Global Product (Tribe)"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "79a91b8e77da1001a9f0a21959e30000",
+     "valueLabel": "Receive"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "e380f86fa0b2011d520d2e87bc004000",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "gb",
+     "valueLabel": "United Kingdom"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e201fc81857d1fba008e14",
+     "valueLabel": "Technology"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "046034784a4d01f4134f114764273117",
+     "valueLabel": "Wise Payments Limited"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "68000 - 87500 GBP Annual"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-06-30"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153155714",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000153156499",
+   "name": "Group Lead - Assets Risk",
+   "uuid": "d43d18e3-72d6-4bb7-aafd-d2bd6d8fe2aa",
+   "jobAdId": "fe9c2005-f059-4733-9545-f6e99682ae4e",
+   "defaultJobAd": true,
+   "refNumber": "R10018",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T11:23:41.204Z",
+   "location": {
+    "city": "London",
+    "country": "gb",
+    "address": "Worship Square, 65 Clifton Street",
+    "postalCode": "EC2A 4JE",
+    "remote": false,
+    "hybrid": true,
+    "hybridDescription": "3 days onsite and 2 from home ",
+    "fullLocation": "London, , United Kingdom"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "analyst",
+    "label": "Analyst"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "cdd42c5d881901016de3cac9ff018780",
+     "valueLabel": "Risk Lead - JP100614"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "031d60c1f3b20194ac76df85bc005f00",
+     "valueLabel": "Risk"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "gb",
+     "valueLabel": "United Kingdom"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a70015dd1babe31c712c11c",
+     "valueLabel": "Core Compliance"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b9419501dd6959b9d6f100d810",
+     "valueLabel": "7"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e201402981b117ba008c14",
+     "valueLabel": "Risk and Compliance"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "cb7e65d2926c01019f4b2cfca5c30000",
+     "valueLabel": "Risk"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "046034784a4d01f4134f114764273117",
+     "valueLabel": "Wise Payments Limited"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "140000 - 190000 GBP Annual"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-09-30"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153156499",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000153123864",
+   "name": "People Partner",
+   "uuid": "51b5265f-3fbf-4c6c-b0d8-d503c7c9a761",
+   "jobAdId": "f6b69a1e-5769-4441-b41d-71637d15e187",
+   "defaultJobAd": true,
+   "refNumber": "R9372",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T08:27:56.140Z",
+   "location": {
+    "city": "London",
+    "country": "gb",
+    "address": "Worship Square, 65 Clifton Street",
+    "postalCode": "EC2A 4JE",
+    "remote": false,
+    "hybrid": false,
+    "fullLocation": "London, , United Kingdom"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "human_resources",
+    "label": "Human Resources"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "031d60c1f3b201d6e1005ac99501ff0b",
+     "valueLabel": "People Partner Senior Specialist - JP100482"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "740e026f1d1201eed00bc00fcd000355",
+     "valueLabel": "People Partners"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "gb",
+     "valueLabel": "United Kingdom"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a70013faa078331c7128f1c",
+     "valueLabel": "People"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b941950169671e99d5f100d710",
+     "valueLabel": "6"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e201ac68d6380dba008814",
+     "valueLabel": "People"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "a51ef4cde2261001764e5a2f2b890000",
+     "valueLabel": "People Partners"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "046034784a4d01f4134f114764273117",
+     "valueLabel": "Wise Payments Limited"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "82000 - 111000 GBP Annual"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-10-19"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153123864",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000153123044",
+   "name": "Senior iOS Engineer II - Account Mobile",
+   "uuid": "1f1fbb63-d905-4239-8a16-7bafb5da971b",
+   "jobAdId": "475cc7ee-adc5-4661-a6b8-d4e1a13e34b3",
+   "defaultJobAd": true,
+   "refNumber": "R10177",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T08:25:40.917Z",
+   "location": {
+    "city": "London",
+    "country": "gb",
+    "address": "Worship Square, 65 Clifton Street",
+    "postalCode": "EC2A 4JE",
+    "remote": false,
+    "hybrid": true,
+    "hybridDescription": "2 -3 days in the office",
+    "fullLocation": "London, , United Kingdom"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "197bb49c71bb1000be7ddb5c08630000",
+     "valueLabel": "Engineer IC4 - JP101071"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a7001b7185a4531c7125d1c",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "65d3d1796435ba43bdb089ad",
+     "fieldLabel": "Squad",
+     "valueId": "c23f18fabbcf1001b60ca765ab720000",
+     "valueLabel": "Account (Squad)"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b941950169671e99d5f100d710",
+     "valueLabel": "6"
+    },
+    {
+     "fieldId": "65d3d16de5ae4c7be012a87e",
+     "fieldLabel": "Tribe",
+     "valueId": "2508138664ba1001b4eeef7e41fa0000",
+     "valueLabel": "Global Product (Tribe)"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "79a91b8e77da1001a9df2ca676f90000",
+     "valueLabel": "Account"
+    },
+    {
+     "fieldId": "697ecac4054e02cef8c7a2ce",
+     "fieldLabel": "ORGANIZATION_TYPE-3-84 L1",
+     "valueId": "1a996433adb41001d77f89dee2560000",
+     "valueLabel": "Wise Start"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "e380f86fa0b2011d520d2e87bc004000",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "gb",
+     "valueLabel": "United Kingdom"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "697ecac2a597b90c91f0575a",
+     "fieldLabel": "Matrix L1",
+     "valueId": "96f473f16f7a1001051277e92e010000",
+     "valueLabel": "APAC Regional Operations"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e201fc81857d1fba008e14",
+     "valueLabel": "Technology"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "046034784a4d01f4134f114764273117",
+     "valueLabel": "Wise Payments Limited"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "111000 - 145000 GBP Annual + RSUs"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-10-01"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153123044",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000153119420",
+   "name": "Senior/Staff Product Engineer - Risk & Control Governance",
+   "uuid": "14ad19cb-f604-4563-b8eb-0a620c4b9d94",
+   "jobAdId": "87e736ec-3c18-41e5-a357-038508c9de6e",
+   "defaultJobAd": true,
+   "refNumber": "R10310",
+   "company": {
+    "identifier": "Wise",
+    "name": "Wise"
+   },
+   "releasedDate": "2026-10-02T08:25:19.736Z",
+   "location": {
+    "city": "London",
+    "country": "gb",
+    "address": "Worship Square, 65 Clifton Street",
+    "postalCode": "EC2A 4JE",
+    "remote": false,
+    "hybrid": false,
+    "fullLocation": "London, , United Kingdom"
+   },
+   "industry": {
+    "id": "financial_services",
+    "label": "Financial Services"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "65d3d0e0d37044292ef9549b",
+     "fieldLabel": "Job Profile",
+     "valueId": "197bb49c71bb1000be7ddb5c08630000",
+     "valueLabel": "Engineer IC4 - JP101071"
+    },
+    {
+     "fieldId": "65cea5ac287e8d0651481809",
+     "fieldLabel": "Time Type",
+     "valueId": "d2f4dafccd5101059b6cf09e12278400",
+     "valueLabel": "Full time"
+    },
+    {
+     "fieldId": "65d3d06b2865b46cfa4f0ec3",
+     "fieldLabel": "Worker Sub Type",
+     "valueId": "046034784a4d016f1889ba8863278f0d",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "65d3d141c86c2f3257de414c",
+     "fieldLabel": "Cost Center Hierarchy",
+     "valueId": "6d8f1bd75a7001b7185a4531c7125d1c",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "65d3d1796435ba43bdb089ad",
+     "fieldLabel": "Squad",
+     "valueId": "c23f18fabbcf1001b6ff5b7966ea0000",
+     "valueLabel": "Servicing Platform (Squad)"
+    },
+    {
+     "fieldId": "658553f79a81b00900831a80",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Wise"
+    },
+    {
+     "fieldId": "65d3d0374c34974b271801f9",
+     "fieldLabel": "Management Level",
+     "valueId": "e82698b941950169671e99d5f100d710",
+     "valueLabel": "6"
+    },
+    {
+     "fieldId": "65d3d16de5ae4c7be012a87e",
+     "fieldLabel": "Tribe",
+     "valueId": "2508138664ba1001b6dc554b5aca0000",
+     "valueLabel": "Servicing (Tribe)"
+    },
+    {
+     "fieldId": "65d3d151a5d3185b4341a7ab",
+     "fieldLabel": "Cost Center",
+     "valueId": "79a91b8e77da1001aa035ac529260000",
+     "valueLabel": "Servicing (FinCrime)"
+    },
+    {
+     "fieldId": "697ecac4054e02cef8c7a2ce",
+     "fieldLabel": "ORGANIZATION_TYPE-3-84 L1",
+     "valueId": "1a996433adb41001d77f89dee2560000",
+     "valueLabel": "Wise Start"
+    },
+    {
+     "fieldId": "65d3d0a7d37044292ef9549a",
+     "fieldLabel": "Job Family",
+     "valueId": "e380f86fa0b2011d520d2e87bc004000",
+     "valueLabel": "Engineering"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "gb",
+     "valueLabel": "United Kingdom"
+    },
+    {
+     "fieldId": "65d3d05c735007771b14e932",
+     "fieldLabel": "Worker Type",
+     "valueId": "EE",
+     "valueLabel": "Wiser"
+    },
+    {
+     "fieldId": "697ecac2a597b90c91f0575a",
+     "fieldLabel": "Matrix L1",
+     "valueId": "96f473f16f7a1001051277e92e010000",
+     "valueLabel": "APAC Regional Operations"
+    },
+    {
+     "fieldId": "65d3d0926435ba43bdb089ac",
+     "fieldLabel": "Job Family Group",
+     "valueId": "cf8ed98297e201fc81857d1fba008e14",
+     "valueLabel": "Technology"
+    },
+    {
+     "fieldId": "65cec407735007771b14e92d",
+     "fieldLabel": "Company",
+     "valueId": "046034784a4d01f4134f114764273117",
+     "valueLabel": "Wise Payments Limited"
+    },
+    {
+     "fieldId": "65d90823f2e6436af25814c2",
+     "fieldLabel": "Job Ad Salary Range",
+     "valueLabel": "111000 - 145000 GBP Annual + RSUs (TC 160K)"
+    },
+    {
+     "fieldId": "65d9080b4aa2f46927dfc1f3",
+     "fieldLabel": "WD Target Hire Date",
+     "valueLabel": "2026-09-01"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Wise/postings/744000153119420",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  }
+ ]
+}

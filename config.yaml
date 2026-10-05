@@ -1,0 +1,92 @@
+http:
+  timeout_seconds: 30
+
+filters:
+  # Title must contain at least one of these (all tiers).
+  title_must_contain: [engineer, developer, scientist]
+  # Title must contain none of these (all tiers).
+  title_exclude_seniority: [staff, principal, director, head of, vp, vice president,
+                            manager, tech lead, lead]
+  title_exclude_roles: [frontend, front-end, front end, react native, ios, android,
+                        mobile, designer, sales, pre-sales, presales, gtm, martech,
+                        growth, marketing, influencer]
+  # Only checked for tiers with require_role_term: true.
+  role_terms: [ai, ml, machine learning, llm, genai, generative, mlops, llmops,
+               platform, devops, devsecops, infrastructure, sre, site reliability,
+               cloud, security, applied]
+  tiers:
+    a:  # curated company career pages
+      require_role_term: false
+    b:  # market search
+      require_role_term: true
+  locations:
+    # A blank location always passes. A location naming one of these always passes.
+    uk: [london, united kingdom, uk, england]
+    # These pass only if the location names nothing from the exclude list,
+    # so "Remote" and "Remote - Europe" pass but "Remote - USA" does not.
+    broad: [remote, europe, emea]
+    exclude: [
+      # regions
+      north america, americas, latam, apac, asia,
+      # countries
+      usa, us, u.s., united states, america, canada, mexico, brazil, argentina,
+      colombia, chile, india, singapore, japan, china, south korea, korea,
+      australia, new zealand, israel, uae, united arab emirates, saudi arabia,
+      south africa, nigeria, egypt, ireland, france, germany, spain, portugal,
+      italy, netherlands, belgium, luxembourg, poland, sweden, norway, denmark,
+      finland, switzerland, austria, czech republic, czechia, hungary, romania,
+      bulgaria, greece, turkey, ukraine, estonia, latvia, lithuania, serbia,
+      croatia, cyprus,
+      # US cities and areas
+      new york, nyc, san francisco, sf, bay area, los angeles, seattle, austin,
+      boston, chicago, denver, atlanta, miami, washington, palo alto,
+      mountain view, san jose, san diego,
+    ]
+
+# Level is read from the title. First match wins, top to bottom.
+# Terms written in capitals (I, III) only match in capitals.
+levels:
+  default: mid
+  # Tier B jobs carry a seniority label, which is used instead of the title when listed here.
+  seniority_map:
+    No Prior Experience Required: graduate
+    Entry Level: junior
+    Mid Level: mid
+    Senior Level: senior
+  keywords:
+    intern: [intern, internship]
+    graduate: [graduate, grad]
+    junior: [junior, jr, associate, entry level, I]
+    senior: [senior, sr, III]
+
+market:
+  enabled: true
+  actor: blackfalcondata~hiringcafe-scraper
+  # One actor run per query. Each is searched as an exact phrase in the job description.
+  queries:
+    - AI Engineer
+    - Machine Learning Engineer
+    - MLOps Engineer
+    - AI Platform Engineer
+    - LLM Engineer
+  country: GB   # two-letter market code from the actor's country list
+  # The actor only accepts: Entry Level, Mid Level, Senior Level, Executive.
+  seniority_levels: [Entry Level, Mid Level]
+  posted_within_days: 14
+  sort_by: date      # newest first. "default" is Hiring.cafe relevance.
+  max_items: 10      # per query
+  timeout_seconds: 300
+  # Drop jobs that state a minimum above this many years. Jobs that state none are kept.
+  max_min_yoe: 3
+  # Drop jobs that require a clearance you must already hold ("Active SC required").
+  # Jobs that only need you to be eligible are kept.
+  exclude_active_clearance: true
+
+connections:
+  file: connections.csv
+  # Words ignored when comparing company names ("Cleo AI Ltd" matches "Cleo").
+  ignore_words: [inc, llc, ltd, limited, plc, corp, co, company, the, group,
+                 technologies, labs, ai, bank]
+
+sheets:
+  tab: Jobs
