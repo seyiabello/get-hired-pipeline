@@ -8,7 +8,9 @@ import pytest
 import main
 from conftest import FIXTURES
 from pipeline.filters import apply_filters
-from pipeline.market import apply_market_rules, clean_title, fetch_market, needs_active_clearance, normalize_market
+from pipeline.market import (
+    apply_market_rules, clean_title, estimate_cost, fetch_market, needs_active_clearance, normalize_market,
+)
 from pipeline.normalize import FIELDS
 
 CONFIG = {
@@ -23,6 +25,7 @@ CONFIG = {
     "timeout_seconds": 300,
     "max_min_yoe": 3,
     "exclude_active_clearance": True,
+    "cost": {"start_usd": 0.005, "per_result_usd": 0.00115},
 }
 
 # Field names as in the saved live response, cut down to the ones we read.
@@ -241,8 +244,9 @@ def test_one_run_per_query_and_a_failed_query_does_not_stop_the_rest(monkeypatch
         return httpx.Response(201, json=[ITEM])
 
     with caplog.at_level("INFO"):
-        jobs = main.run_tier_b(client_for(handler), CONFIG)
+        jobs, counts = main.run_tier_b(client_for(handler), CONFIG)
 
+    assert counts == {"MLOps Engineer": 1}  # the failed query is not counted
     assert queries == ["AI Engineer", "MLOps Engineer"]
     assert [j["title"] for j in jobs] == ["AI Engineer"]
     assert "'AI Engineer' failed" in caplog.text
@@ -256,7 +260,7 @@ def test_skipped_when_disabled(monkeypatch):
     def handler(request):
         raise AssertionError("should not call Apify")
 
-    assert main.run_tier_b(client_for(handler), dict(CONFIG, enabled=False)) == []
+    assert main.run_tier_b(client_for(handler), dict(CONFIG, enabled=False)) == ([], {})
 
 
 def test_skipped_without_token(monkeypatch, caplog):
@@ -266,7 +270,7 @@ def test_skipped_without_token(monkeypatch, caplog):
         raise AssertionError("should not call Apify")
 
     with caplog.at_level("WARNING"):
-        assert main.run_tier_b(client_for(handler), CONFIG) == []
+        assert main.run_tier_b(client_for(handler), CONFIG) == ([], {})
     assert "APIFY_TOKEN is not set" in caplog.text
 
 
@@ -278,7 +282,7 @@ def test_skipped_without_token(monkeypatch, caplog):
 def test_failure_logs_a_warning_and_never_leaks_the_token(monkeypatch, caplog, response):
     monkeypatch.setenv("APIFY_TOKEN", "secret-token")
     with caplog.at_level("INFO"):
-        assert main.run_tier_b(client_for(lambda request: response), CONFIG) == []
+        assert main.run_tier_b(client_for(lambda request: response), CONFIG) == ([], {})
     assert "failed, continuing without it" in caplog.text
     assert "secret-token" not in caplog.text
 
@@ -290,5 +294,28 @@ def test_timeout_does_not_stop_the_run(monkeypatch, caplog):
         raise httpx.ReadTimeout("timed out", request=request)
 
     with caplog.at_level("WARNING"):
-        assert main.run_tier_b(client_for(handler), CONFIG) == []
+        assert main.run_tier_b(client_for(handler), CONFIG) == ([], {})
     assert "secret-token" not in caplog.text
+
+
+# --- cost estimate ---
+
+def test_estimate_cost():
+    total, per_query = estimate_cost({"AI Engineer": 25, "DevSecOps": 0, "Cloud Engineer": 10}, CONFIG)
+    assert per_query == pytest.approx({"AI Engineer": 0.03375, "DevSecOps": 0.005, "Cloud Engineer": 0.0165})
+    assert total == pytest.approx(0.05525)
+    assert estimate_cost({}, CONFIG) == (0, {})
+
+
+def test_cost_is_logged_with_a_per_query_breakdown(caplog):
+    with caplog.at_level("INFO"):
+        main.log_cost({"AI Engineer": 25, "DevSecOps": 0}, CONFIG)
+    assert "Apify estimated cost: $0.039 for 2 queries, 25 results" in caplog.text
+    assert "$0.034  AI Engineer" in caplog.text
+    assert "$0.005  DevSecOps" in caplog.text
+
+
+def test_no_cost_line_when_tier_b_did_not_run(caplog):
+    with caplog.at_level("INFO"):
+        main.log_cost({}, CONFIG)
+    assert caplog.text == ""

@@ -22,7 +22,7 @@ from pipeline.dedupe import dedupe
 from pipeline.enrich import enrich
 from pipeline.fetchers import FETCHERS, detect_from_careers_url
 from pipeline.filters import apply_filters
-from pipeline.market import apply_market_rules, fetch_market, normalize_market
+from pipeline.market import apply_market_rules, estimate_cost, fetch_market, normalize_market
 from pipeline.normalize import normalize
 from pipeline.sheets import JOB_COLUMNS, open_worksheet, upsert
 
@@ -67,16 +67,20 @@ def run_tier_a(client: httpx.Client, targets: list[dict]) -> list[dict]:
     return jobs
 
 
-def run_tier_b(client: httpx.Client, config: dict) -> list[dict]:
-    """Market search. Returns [] when switched off, when there is no token, or on any failure."""
+def run_tier_b(client: httpx.Client, config: dict) -> tuple[list[dict], dict[str, int]]:
+    """Market search. Returns (jobs, results returned per query that ran).
+
+    Both are empty when Tier B is switched off or there is no token. A query that
+    fails is logged and left out.
+    """
     if not config.get("enabled"):
         log.info("Tier B: skipped (market.enabled is false)")
-        return []
+        return [], {}
     token = os.environ.get("APIFY_TOKEN")
     if not token:
         log.warning("Tier B: skipped, APIFY_TOKEN is not set")
-        return []
-    found = []
+        return [], {}
+    found, counts = [], {}
     for query in config["queries"]:
         try:
             items = fetch_market(client, config, token, query)
@@ -84,8 +88,18 @@ def run_tier_b(client: httpx.Client, config: dict) -> list[dict]:
             log.warning("Tier B: %r failed, continuing without it: %s", query, exc)
             continue
         log.info("Tier B: %r returned %d jobs (asked for up to %d)", query, len(items), config["max_items"])
+        counts[query] = len(items)
         found.extend(normalize_market(items))
-    return found
+    return found, counts
+
+
+def log_cost(counts: dict[str, int], config: dict) -> None:
+    if not counts:
+        return
+    total, per_query = estimate_cost(counts, config)
+    log.info("Apify estimated cost: $%.3f for %d queries, %d results", total, len(counts), sum(counts.values()))
+    for query, cost in per_query.items():
+        log.info("  $%.3f  %-28s %2d results", cost, query, counts[query])
 
 
 def write_csv(jobs: list[dict], path: Path) -> None:
@@ -127,7 +141,7 @@ def main() -> int:
     headers = {"User-Agent": "get-hired-pipeline/1.0"}
     with httpx.Client(timeout=config["http"]["timeout_seconds"], headers=headers, follow_redirects=True) as client:
         fetched = run_tier_a(client, targets)
-        market = [] if args.company else run_tier_b(client, config["market"])
+        market, counts = ([], {}) if args.company else run_tier_b(client, config["market"])
     tier_a = apply_filters(fetched, config["filters"], tier="a")
     log.info("Tier A: kept %d of %d jobs after filters", len(tier_a), len(fetched))
     tier_b = apply_market_rules(apply_filters(market, config["filters"], tier="b"), config["market"])
@@ -146,14 +160,17 @@ def main() -> int:
     log.info("wrote jobs.csv")
     if args.dry_run:
         print_jobs(jobs)
+        log_cost(counts, config["market"])
         return 0
 
     try:
         stats = upsert(open_worksheet(config["sheets"]["tab"]), jobs, today)
+        log.info("Sheets: %d new rows, %d updated", stats["new"], stats["updated"])
     except Exception as exc:
         log.error("Sheets update failed: %s", exc)
         return 1
-    log.info("Sheets: %d new rows, %d updated", stats["new"], stats["updated"])
+    finally:
+        log_cost(counts, config["market"])
     return 0
 
 

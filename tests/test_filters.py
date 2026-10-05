@@ -191,3 +191,30 @@ def test_empty_exclude_list_excludes_nothing(filter_config):
     locations = dict(filter_config["locations"], exclude=[])
     custom = dict(filter_config, locations=locations)
     assert apply_filters([job("AI Engineer", "Remote - USA")], custom, "a")
+
+
+# --- every Tier B search lane has a role term that lets its titles through ---
+
+LANES = {
+    "cloud": "Cloud Engineer",
+    "sre": "SRE Engineer",
+    "site reliability": "Site Reliability Engineer",
+    "devops": "DevOps Engineer",
+    "devsecops": "DevSecOps Engineer",
+    "security": "Security Engineer",
+    "platform": "Platform Engineer",
+    "applied": "Applied Scientist",
+    "generative": "Generative Models Engineer",
+    "mlops": "MLOps Engineer",
+}
+
+
+@pytest.mark.parametrize("term, title", sorted(LANES.items()))
+def test_tier_b_lane_is_covered(filter_config, tier_b, term, title):
+    assert term in filter_config["role_terms"]
+    assert tier_b.keep(job(title))
+    # the title passes because of this term, not another one
+    only = dict(filter_config, role_terms=[term])
+    assert JobFilter(only, "b").keep(job(title))
+    without = dict(filter_config, role_terms=[t for t in filter_config["role_terms"] if t != term])
+    assert not JobFilter(without, "b").keep(job(title))

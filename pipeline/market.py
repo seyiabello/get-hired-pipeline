@@ -130,6 +130,17 @@ def apply_market_rules(jobs: list[dict], config: dict) -> list[dict]:
     return kept
 
 
+def estimate_cost(counts: dict[str, int], config: dict) -> tuple[float, dict[str, float]]:
+    """Estimated Apify charge: a start fee per query plus a fee per result returned.
+
+    counts maps each query that ran to the number of results it returned.
+    Returns (total, cost per query) in US dollars.
+    """
+    prices = config["cost"]
+    per_query = {query: prices["start_usd"] + n * prices["per_result_usd"] for query, n in counts.items()}
+    return sum(per_query.values()), per_query
+
+
 def _inspect() -> int:
     """Make one live call, save it as the test fixture and print a summary."""
     import yaml

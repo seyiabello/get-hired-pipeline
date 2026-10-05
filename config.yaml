@@ -66,25 +66,36 @@ market:
   queries:
     - AI Engineer
     - Machine Learning Engineer
+    - Applied AI
+    - Generative AI
     - MLOps Engineer
     - AI Platform Engineer
+    - DevOps Engineer
     - Platform Engineer
-    - Devops Engineer
-    - Applied AI
-    - AI Security
-    - LLM Engineer
+    - Cloud Engineer
+    - Site Reliability Engineer
+    - DevSecOps
+    - Cloud Security Engineer
   country: GB   # two-letter market code from the actor's country list
   # The actor only accepts: Entry Level, Mid Level, Senior Level, Executive.
   seniority_levels: [Entry Level, Mid Level]
-  posted_within_days: 14
+  # The pipeline runs daily, so 3 days overlaps on purpose: a job missed by one run
+  # (a failed run, a late listing) is still picked up by the next. Repeats cost nothing
+  # in the sheet because rows are matched by url.
+  posted_within_days: 3
   sort_by: date      # newest first. "default" is Hiring.cafe relevance.
-  max_items: 10      # per query
+  # Per query, not in total: 12 queries at 25 is up to 300 results a run.
+  max_items: 25
   timeout_seconds: 300
   # Drop jobs that state a minimum above this many years. Jobs that state none are kept.
   max_min_yoe: 3
   # Drop jobs that require a clearance you must already hold ("Active SC required").
   # Jobs that only need you to be eligible are kept.
   exclude_active_clearance: true
+  # Actor pricing, used only for the cost estimate logged at the end of a run.
+  cost:
+    start_usd: 0.005         # charged once per query (one actor run each)
+    per_result_usd: 0.00115  # charged per result returned
 
 connections:
   file: connections.csv
