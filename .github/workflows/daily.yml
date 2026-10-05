@@ -65,6 +65,9 @@ jobs:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           SHEET_ID: ${{ secrets.SHEET_ID }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
         run: python main.py
 
       - name: Upload jobs.csv

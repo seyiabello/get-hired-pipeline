@@ -19,6 +19,7 @@ import yaml
 
 from pipeline.connections import load_connections, tag_jobs
 from pipeline.dedupe import dedupe
+from pipeline.digest import send_digest
 from pipeline.enrich import enrich
 from pipeline.fetchers import FETCHERS, detect_from_careers_url
 from pipeline.filters import apply_filters
@@ -171,6 +172,15 @@ def main() -> int:
         return 1
     finally:
         log_cost(counts, config["market"])
+
+    if not config["digest"]["enabled"]:
+        return 0
+    new_today = set(stats["new_today"])
+    try:
+        send_digest([job for job in jobs if job["url"] in new_today], today)
+    except RuntimeError as exc:
+        log.error("Digest: %s", exc)
+        return 1
     return 0
 
 

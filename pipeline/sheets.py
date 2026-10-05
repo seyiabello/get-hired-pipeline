@@ -45,12 +45,17 @@ def plan_upsert(values: list[list], jobs: list[dict], today: date) -> tuple[list
     jobs = list({job["url"]: job for job in jobs if job.get("url")}.values())
     stamp = today.isoformat()
     new_rows = []
+    new_today = []  # urls whose first_seen is today: added now, or by an earlier run today
     for job in jobs:
         cells = {name: job[name] for name in JOB_COLUMNS if name in job}
         cells["last_seen"] = stamp
         if job["url"] in row_of:
             updates.extend(_row_updates(row_of[job["url"]], cells, col))
+            row = values[row_of[job["url"]] - 1]
+            if col["first_seen"] < len(row) and str(row[col["first_seen"]]).strip() == stamp:
+                new_today.append(job["url"])
         else:
+            new_today.append(job["url"])
             cells["first_seen"] = stamp
             row = [""] * len(header)
             for name, value in cells.items():
@@ -66,6 +71,7 @@ def plan_upsert(values: list[list], jobs: list[dict], today: date) -> tuple[list
         "updated": len(jobs) - len(new_rows),
         "rows_needed": max(len(values), 1) + len(new_rows),
         "cols_needed": len(header),
+        "new_today": new_today,
     }
     return updates, stats
 

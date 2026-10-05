@@ -105,3 +105,8 @@ connections:
 
 sheets:
   tab: Jobs
+
+# Email the jobs whose first_seen is today. Needs GMAIL_ADDRESS and GMAIL_APP_PASSWORD;
+# without them the email is skipped. Never sent on --dry-run or when nothing is new.
+digest:
+  enabled: true

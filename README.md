@@ -31,6 +31,7 @@ flowchart TD
     E --> W
     W --> CSV[jobs.csv]
     W --> S[Google Sheet: upsert by url]
+    S --> M[Email digest of jobs first seen today]
 ```
 
 ## Repo structure
@@ -49,6 +50,8 @@ get-hired-pipeline/
 │   ├── dedupe.py            # drop repeats
 │   ├── enrich.py            # level and age_days
 │   ├── connections.py       # Tier C: Warm/Cold matching
+│   ├── digest.py            # email of today's new jobs
+│   ├── setup_sheet.py       # one-off formatting of the Jobs tab
 │   └── sheets.py            # Google Sheets upsert
 ├── tests/
 │   └── fixtures/            # saved real API responses, one per source
@@ -110,6 +113,9 @@ You do not need to create the "Jobs" tab or any headers. The first run does both
 | `GOOGLE_SERVICE_ACCOUNT_FILE` | Google Sheets, local runs | path to the key file |
 | `GOOGLE_SERVICE_ACCOUNT_JSON` | Google Sheets, GitHub Actions | the full contents of the key file. Used when the file variable is not set |
 | `APIFY_TOKEN` | Tier B | from https://console.apify.com/settings/integrations. Without it Tier B is skipped |
+| `GMAIL_ADDRESS` | Email digest | the Gmail account that sends the digest. Without it no email is sent |
+| `GMAIL_APP_PASSWORD` | Email digest | a Gmail app password, see step 6 |
+| `DIGEST_TO` | Email digest | optional. Where to send the digest. Defaults to `GMAIL_ADDRESS` |
 
 In PowerShell, for the current session:
 
@@ -131,6 +137,8 @@ In your GitHub repo open "Settings", "Secrets and variables", "Actions" and add:
 | `GOOGLE_SERVICE_ACCOUNT_JSON` | open the key file in a text editor and paste the whole thing |
 | `APIFY_TOKEN` | your Apify token. Leave it out to run Tier A only |
 | `CONNECTIONS_CSV` | optional, see below |
+| `GMAIL_ADDRESS`, `GMAIL_APP_PASSWORD` | optional, for the email digest, see step 6 |
+| `DIGEST_TO` | optional, if the digest should go to a different address |
 
 `connections.csv` is not committed, so GitHub Actions cannot see it. Without the `CONNECTIONS_CSV` secret the daily run tags every job Cold and overwrites the Warm tags from your local runs. To keep Warm tags in the daily run:
 
@@ -151,6 +159,59 @@ The workflow in `.github/workflows/daily.yml` runs at 07:00 UK time every day an
 If the file is missing, every job is tagged Cold and the run says so.
 
 Company names are compared after removing the words in `connections.ignore_words` in `config.yaml` (ltd, inc, ai, bank and so on). The match is exact, so "Cleo AI Ltd" matches "Cleo" but "Cleopatra" does not. If a company you know people at shows as Cold, check how LinkedIn spells the company and add the extra word to that list.
+
+### 6. Email digest (optional)
+
+After each run the pipeline emails you the jobs whose `first_seen` is today, grouped by level, with company, title, location, salary if the listing gave one, and the link. No email is sent when nothing is new, on `--dry-run`, or when the Gmail variables are not set.
+
+It sends through Gmail with an app password, which is a 16-letter password for one app that you can revoke at any time. Your normal Google password is never used.
+
+1. Turn on 2-Step Verification for the Google account at https://myaccount.google.com/security. App passwords are not available without it.
+2. Go to https://myaccount.google.com/apppasswords and sign in again if asked.
+3. Type a name such as "Get Hired pipeline" and click Create.
+4. Copy the 16-letter password shown. Google shows it once. The spaces do not matter.
+5. Add GitHub secrets `GMAIL_ADDRESS` (the full Gmail address) and `GMAIL_APP_PASSWORD` (the 16 letters). Add `DIGEST_TO` only if the digest should go somewhere other than that Gmail address.
+
+To test it locally, set the same variables in PowerShell and run `python main.py`:
+
+```powershell
+$env:GMAIL_ADDRESS = "you@gmail.com"
+$env:GMAIL_APP_PASSWORD = "abcd efgh ijkl mnop"
+```
+
+If you run the pipeline twice in one day, the second run sends the same day's new jobs again, plus anything added since. To stop the emails, set `digest.enabled: false` in `config.yaml` or delete the two secrets. To revoke access, delete the app password on the same Google page.
+
+If the apppasswords page says the setting is not available, the account is a work or school account whose administrator has disabled app passwords, or it uses Advanced Protection. Use a personal Gmail account as the sender instead.
+
+### 7. Format the sheet (optional)
+
+Once the pipeline has run at least once, so the "Jobs" tab has its header row, you can format the tab with one command. It uses the same `SHEET_ID` and Google credentials as the pipeline:
+
+```powershell
+python -m pipeline.setup_sheet
+```
+
+What it does:
+
+- Freezes the header row and the first three columns (company, ats, title), and makes the header bold with a light fill.
+- Hides the `ats`, `posted`, `ext_id` and `salary_currency` columns. To see them again, select the columns either side, right-click and choose "Unhide columns".
+- Shows `salary_min` and `salary_max` as whole pounds.
+- Adds `status`, `notes` and `applied_on` columns at the end if they are missing. `status` is a dropdown: To review, Applying, Applied, Interviewing, Offer, Rejected, Not interested.
+- Adds four conditional formatting rules over all data rows, in this priority order:
+
+  | Rule | Format |
+  |---|---|
+  | No longer listed: `last_seen` is more than 2 days ago | grey text, strikethrough |
+  | New: `first_seen` is within the last 2 days | light green fill |
+  | `level` is intern, graduate or junior | bold |
+  | `lead_type` is Warm | light orange fill |
+
+  Where two rules set the same thing, the higher one wins, so a new Warm job is green, not orange.
+- Creates a filter view called "To review" that shows rows with a blank status, newest `first_seen` first. Open it from "Data", "Filter views". A filter view changes only what you see; the rows themselves are not reordered.
+
+It is safe to run again. It finds columns by header name, so it still works after you move columns around. It replaces its own rules and filter view and leaves any you made yourself alone, and it adds no duplicate columns. It never changes cell values. If you later rename one of the pipeline's headers, the step that needs it is skipped with a warning.
+
+The frozen columns are only set when company, ats and title are the first three columns. The dropdown rejects values outside the list for new entries; anything already typed in the status column is left as it is.
 
 ## Running locally
 
@@ -250,6 +311,11 @@ Everything is in `config.yaml`:
 | `Tier B: skipped, APIFY_TOKEN is not set` | Expected if you have no token. Tier A still runs. |
 | `Tier B: '<query>' failed` with 401 or 402 | The token is wrong, or the Apify account is out of credit. |
 | Tier B returns jobs but few are kept | Normal. The role, experience and clearance rules are strict. Loosen them in `config.yaml`. |
+| `Digest: skipped, GMAIL_ADDRESS and GMAIL_APP_PASSWORD are not both set` | Expected if you have not set up the digest. |
+| `Digest: could not send the digest (SMTPAuthenticationError)` | The app password is wrong or was revoked, or `GMAIL_ADDRESS` is not the account that created it. Your normal Google password does not work here. |
+| `Digest: could not send the digest (TimeoutError)` or another network error | The network blocks outgoing mail on port 465. GitHub Actions allows it. |
+| No digest email arrived | Nothing was new today (the log says so), or the email is in spam. |
+| `Sheet setup failed: the tab has no header row yet` | Run `python main.py` once before `python -m pipeline.setup_sheet`. |
 | Everything is tagged Cold | `connections.csv` is missing, or in GitHub Actions the `CONNECTIONS_CSV` secret is not set. |
 | A company you know people at is Cold | LinkedIn spells the company differently. Add the extra word to `connections.ignore_words`. |
 | The scheduled run did not start | GitHub can delay scheduled runs at busy times and pauses schedules after 60 days without repo activity. Start it by hand from the Actions tab. |
