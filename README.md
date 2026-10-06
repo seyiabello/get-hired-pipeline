@@ -148,7 +148,7 @@ python -m pipeline.connections
 
 This writes `connections.slim.csv` with only the four columns the pipeline reads (first name, last name, company, position). Paste its contents into the `CONNECTIONS_CSV` secret. GitHub secrets hold up to 48 KB and the command prints the file size.
 
-The workflow in `.github/workflows/daily.yml` runs at 07:00 UK time every day and can also be started by hand from the Actions tab ("Run workflow"). It runs the tests first, then the pipeline, and uploads `jobs.csv` as an artifact.
+The workflow in `.github/workflows/daily.yml` runs shortly after 07:00 UK time every day (usually around 07:07) and can also be started by hand from the Actions tab ("Run workflow"). It runs the tests first, then the pipeline, and uploads `jobs.csv` as an artifact.
 
 ### 5. Connections (optional)
 
@@ -318,7 +318,7 @@ Everything is in `config.yaml`:
 | `Sheet setup failed: the tab has no header row yet` | Run `python main.py` once before `python -m pipeline.setup_sheet`. |
 | Everything is tagged Cold | `connections.csv` is missing, or in GitHub Actions the `CONNECTIONS_CSV` secret is not set. |
 | A company you know people at is Cold | LinkedIn spells the company differently. Add the extra word to `connections.ignore_words`. |
-| The scheduled run did not start | GitHub can delay scheduled runs at busy times and pauses schedules after 60 days without repo activity. Start it by hand from the Actions tab. |
+| The scheduled run did not start | GitHub can delay or drop scheduled triggers, so the workflow has spare triggers at about 08:07 and 09:07 UTC that run only if the pipeline has not run yet that day. GitHub also pauses schedules after 60 days without repo activity. You can always start it by hand from the Actions tab. |
 | Rows I sorted or edited by hand | Safe. The pipeline finds rows by `url` and columns by header name. Do not rename the pipeline's own column headers. |
 
 ## Git push instructions
