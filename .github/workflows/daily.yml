@@ -4,18 +4,24 @@ on:
   schedule:
     # GitHub cron is UTC, and scheduled triggers can arrive late or not at all.
     # 07:00 UK time is 06:00 UTC in summer and 07:00 UTC in winter. Four triggers are
-    # scheduled; the first step lets through the first one that arrives at or after
+    # scheduled; the guard step lets through the first one that arrives at or after
     # 07:00 in London and skips the rest of that day. The later two are spares.
     # Minute 7 is used because the top of the hour is when GitHub is busiest.
     - cron: "7 6 * * *"
     - cron: "7 7 * * *"
     - cron: "7 8 * * *"
     - cron: "7 9 * * *"
+  # Started by hand, or by an outside scheduler as a backup (see the README).
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Run now, even if the pipeline has already run today or it is before 07:00"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
-  actions: read  # to check whether today's run has already happened
+  actions: read  # the guard looks up today's earlier runs
 
 concurrency:
   group: daily-pipeline
@@ -26,30 +32,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
+      - uses: actions/checkout@v4
+
+      # Sets go=true for the first trigger of the day and go=false for the rest.
+      # A dispatch without force is treated exactly like a scheduled trigger.
       - name: Decide whether this trigger should run
         id: clock
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          go=true
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            hour=$(TZ=Europe/London date +%-H)
-            today=$(date -u +%F)
-            # A run that got as far as the pipeline uploads a jobs-csv artifact.
-            done_today=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=jobs-csv&per_page=20" \
-              --jq "[.artifacts[] | select(.created_at | startswith(\"$today\"))] | length" || echo 0)
-            if [ "$hour" -lt 7 ]; then
-              echo "London hour is $hour, too early, skipping this trigger"
-              go=false
-            elif [ "$done_today" -gt 0 ]; then
-              echo "The pipeline has already run today, skipping this trigger"
-              go=false
-            fi
-          fi
-          echo "go=$go" >> "$GITHUB_OUTPUT"
-
-      - uses: actions/checkout@v4
-        if: steps.clock.outputs.go == 'true'
+          GITHUB_TOKEN: ${{ github.token }}
+          FORCE: ${{ inputs.force }}
+        run: python3 -m pipeline.schedule_guard
 
       - uses: actions/setup-python@v5
         if: steps.clock.outputs.go == 'true'

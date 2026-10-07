@@ -52,6 +52,7 @@ get-hired-pipeline/
 │   ├── connections.py       # Tier C: Warm/Cold matching
 │   ├── digest.py            # email of today's new jobs
 │   ├── setup_sheet.py       # one-off formatting of the Jobs tab
+│   ├── schedule_guard.py    # decides which daily trigger does the work
 │   └── sheets.py            # Google Sheets upsert
 ├── tests/
 │   └── fixtures/            # saved real API responses, one per source
@@ -148,7 +149,22 @@ python -m pipeline.connections
 
 This writes `connections.slim.csv` with only the four columns the pipeline reads (first name, last name, company, position). Paste its contents into the `CONNECTIONS_CSV` secret. GitHub secrets hold up to 48 KB and the command prints the file size.
 
-The workflow in `.github/workflows/daily.yml` runs shortly after 07:00 UK time every day (usually around 07:07) and can also be started by hand from the Actions tab ("Run workflow"). It runs the tests first, then the pipeline, and uploads `jobs.csv` as an artifact.
+The workflow in `.github/workflows/daily.yml` is meant to run once each morning, shortly after 07:00 UK time. It runs the tests first, then the pipeline, and uploads `jobs.csv` as an artifact.
+
+How the daily run is chosen:
+
+- GitHub is asked to trigger the workflow four times each morning (06:07, 07:07, 08:07 and 09:07 UTC), because its scheduler can be late or skip a trigger altogether.
+- The first step of every run is a guard. The first trigger that arrives at or after 07:00 in London, on a day when the pipeline has not yet completed, does the work. Every later trigger that day finishes in a few seconds with "the pipeline has already run today, skipping".
+- A late trigger still runs. What matters is whether the pipeline has run today (London date), not the exact time.
+- If a run fails, the next trigger tries again, because only a run that completed the pipeline counts.
+
+To start a run by hand, open the Actions tab, choose "Daily job pipeline", click "Run workflow" and tick **force**. Or from a terminal:
+
+```powershell
+gh workflow run daily.yml -f force=true
+```
+
+With force ticked the run always goes ahead. Without it, a hand-started run follows the same rule as a scheduled one, so it skips if the pipeline has already run today. That default is what makes the backup trigger in step 8 safe.
 
 ### 5. Connections (optional)
 
@@ -212,6 +228,66 @@ What it does:
 It is safe to run again. It finds columns by header name, so it still works after you move columns around. It replaces its own rules and filter view and leaves any you made yourself alone, and it adds no duplicate columns. It never changes cell values. If you later rename one of the pipeline's headers, the step that needs it is skipped with a warning.
 
 The frozen columns are only set when company, ats and title are the first three columns. The dropdown rejects values outside the list for new entries; anything already typed in the status column is left as it is.
+
+### 8. Backup trigger from outside GitHub (optional, recommended)
+
+GitHub does not guarantee scheduled workflows. On some repositories the schedule fires late, and on some it does not fire at all for days. A free outside scheduler that starts the workflow through the GitHub API removes that dependency. The guard makes it safe: if GitHub's own schedule has already run that day, the backup trigger skips.
+
+**A. Create a token that can only start this repo's workflows**
+
+1. On GitHub, click your profile picture, then "Settings", "Developer settings", "Personal access tokens", "Fine-grained tokens", "Generate new token".
+2. Token name: `cron-job.org get-hired-pipeline`.
+3. Expiration: pick the longest you are comfortable with, up to one year. Put the expiry date in your calendar, because the backup stops when the token expires.
+4. Repository access: "Only select repositories", then choose `get-hired-pipeline`.
+5. Permissions, "Repository permissions": set **Actions** to "Read and write". Leave everything else at "No access". GitHub adds "Metadata: Read-only" by itself.
+6. Click "Generate token" and copy it. It starts with `github_pat_` and is shown once.
+
+This token can start, cancel and re-run workflows in this one repo and read their logs. It cannot read your secrets, push code or touch any other repo.
+
+**B. Check the token from your own machine**
+
+```powershell
+curl.exe -i -X POST "https://api.github.com/repos/seyiabello/get-hired-pipeline/actions/workflows/daily.yml/dispatches" `
+  -H "Accept: application/vnd.github+json" `
+  -H "Authorization: Bearer github_pat_YOUR_TOKEN" `
+  -H "X-GitHub-Api-Version: 2022-11-28" `
+  -d '{\"ref\":\"main\"}'
+```
+
+`HTTP/2 204` with an empty body means it worked, and a new run appears in the Actions tab within a few seconds. If the pipeline has already run today, that run skips, which is correct.
+
+**C. Create the job on cron-job.org**
+
+1. Sign up at https://cron-job.org (free) and click "Create cronjob".
+2. On the "Common" tab:
+   - Title: `Get Hired daily backup`
+   - URL: `https://api.github.com/repos/seyiabello/get-hired-pipeline/actions/workflows/daily.yml/dispatches`
+   - Execution schedule: "Custom", every day at 07:20. Set the time zone to "Europe/London" so it follows UK clock changes.
+3. On the "Advanced" tab:
+   - Request method: `POST`
+   - Headers, add these four:
+
+     | Key | Value |
+     |---|---|
+     | `Accept` | `application/vnd.github+json` |
+     | `Authorization` | `Bearer github_pat_YOUR_TOKEN` |
+     | `X-GitHub-Api-Version` | `2022-11-28` |
+     | `Content-Type` | `application/json` |
+
+   - Request body: `{"ref":"main"}`
+4. Turn on "Notify me when execution fails" so you hear about an expired token.
+5. Click "Create", then open the job and use "Test run". The result should be `204 No Content`.
+
+07:20 is after GitHub's own 07:07 trigger has normally finished its guard, so on a good day the backup simply skips. For a second safety net, clone the job and set the copy to 08:20.
+
+Do not add `"inputs":{"force":"true"}` to the body. Without force, the backup is treated exactly like a scheduled trigger. With it, the pipeline would run a second time every day, doubling the Apify cost and the email.
+
+| Response from GitHub | Meaning |
+|---|---|
+| 204 | Started |
+| 401 | The token is wrong or has expired. Create a new one and update the Authorization header |
+| 403 or 404 | The token does not cover this repo, or lacks "Actions: Read and write" |
+| 422 | The body is wrong, or the branch in `ref` does not exist |
 
 ## Running locally
 
@@ -318,7 +394,8 @@ Everything is in `config.yaml`:
 | `Sheet setup failed: the tab has no header row yet` | Run `python main.py` once before `python -m pipeline.setup_sheet`. |
 | Everything is tagged Cold | `connections.csv` is missing, or in GitHub Actions the `CONNECTIONS_CSV` secret is not set. |
 | A company you know people at is Cold | LinkedIn spells the company differently. Add the extra word to `connections.ignore_words`. |
-| The scheduled run did not start | GitHub can delay or drop scheduled triggers, so the workflow has spare triggers at about 08:07 and 09:07 UTC that run only if the pipeline has not run yet that day. GitHub also pauses schedules after 60 days without repo activity. You can always start it by hand from the Actions tab. |
+| The scheduled run did not start | Check the Actions tab. Runs that say "skipping" in the first step are normal: only one trigger a day does the work. If there are no scheduled runs at all, GitHub's scheduler is not firing for this repo; set up the backup trigger in setup step 8. Turning the workflow off and on again (`gh workflow disable daily.yml`, then `gh workflow enable daily.yml`) sometimes makes GitHub pick the schedule up. GitHub also pauses schedules after 60 days without repo activity. |
+| A run I started by hand skipped | The pipeline had already run today, or it was before 07:00 in London. Start it again with the force box ticked, or `gh workflow run daily.yml -f force=true`. |
 | Rows I sorted or edited by hand | Safe. The pipeline finds rows by `url` and columns by header name. Do not rename the pipeline's own column headers. |
 
 ## Git push instructions
